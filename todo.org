@@ -1,0 +1,27 @@
+* Adding support for a language server
+** General instructions
+1. Create a configuration file in the lsp-bridge/langserver directory. For
+   example, ~pyright.json~ is the configuration file for the pyright server (use
+   ~pyright_windows.json~ for Windows and ~pyright_darwin.json~ for macOS). 
+2. Add ~(mode . server_name)~ to the ~lsp-bridge-single-lang-server-mode-list~
+   option in the lsp-bridge.el file, for example, ~(python-mode . "pyright")~. 
+3. Add a new mode-hook to the ~lsp-bridge-default-mode-hooks~ option in the
+   lsp-bridge.el file. 
+4. Add a new indentation variable to the ~lsp-bridge-formatting-indent-alist~
+   option in the lsp-bridge.el file. 
+
+We welcome patches to help us support more LSP servers. Thank you for your help!
+
+** Translating the instructions for =air=
+1. Create a configuration file in the lsp-bridge/langserver directory. For
+   example, ~air.json~ is the configuration file for the pyright server (use
+   ~air_windows.json~ for Windows and ~air_darwin.json~ for macOS). 
+2. Add ~(mode . server_name)~ to the ~lsp-bridge-single-lang-server-mode-list~
+   option in the lsp-bridge.el file, for example, ~(R-mode . "air")~. Should that
+   be ~(R-mode . air)~? 
+3. Add a new mode-hook to the ~lsp-bridge-default-mode-hooks~ option in the
+   lsp-bridge.el file. 
+4. Add a new indentation variable to the ~lsp-bridge-formatting-indent-alist~
+   option in the lsp-bridge.el file.
+
+We welcome patches to help us support more LSP servers. Thank you for your help!
