@@ -512,6 +512,11 @@ Possible choices are basedpyright, pyright, pyright-background-analysis, jedi, p
 Possible choices are `solargraph', `ruby-lsp'."
   :type 'string)
 
+(defcustom lsp-bridge-r-lsp-server "air"
+  "Default LSP server for R.
+Possible choices are `air` or `rlanguageserver`."
+  :type 'string)
+
 (defcustom lsp-bridge-python-multi-lsp-server "basedpyright_ruff"
   "Default Multi LSP server for Python.
 Possible choices are basedpyright_ruff, pyright_ruff, pyright-background-analysis_ruff, jedi_ruff, python-ms_ruff, and pylsp_ruff."
@@ -616,7 +621,7 @@ If nil, lsp-bridge would try to detect by default."
     ((fortran-mode f90-mode) .                                                   "fortls")
     ((nix-mode nix-ts-mode) .                                                    lsp-bridge-nix-lsp-server)
     (nickel-mode .                                                               "nls")
-    (ess-r-mode .                                                                "rlanguageserver")
+    ((R-mode ess-r-mode) .                                                       lsp-bridge-r-lsp-server)
     ((graphql-mode graphql-ts-mode) .                                            "graphql-lsp")
     (swift-mode .                                                                "swift-sourcekit")
     ((csharp-mode csharp-ts-mode) .                                              lsp-bridge-csharp-lsp-server)
@@ -731,6 +736,7 @@ If nil, lsp-bridge would try to detect by default."
     nix-mode-hook
     nix-ts-mode-hook
     nickel-mode-hook
+    R-mode-hook
     ess-r-mode-hook
     verilog-mode-hook
     swift-mode-hook
@@ -889,6 +895,7 @@ you can customize `lsp-bridge-get-workspace-folder' to return workspace folder p
     (tsx-ts-mode                . typescript-ts-mode-indent-offset) ; Typescript[TSX]
     (sh-mode                    . sh-basic-offset)   ; Shell Script
     (ruby-mode                  . ruby-indent-level) ; Ruby
+    (R-mode                     . lsp-bridge-indent-two-level) ; R
     (ruby-ts-mode               . ruby-indent-level) ; Ruby
     (enh-ruby-mode              . enh-ruby-indent-level) ; Ruby
     (crystal-mode               . crystal-indent-level) ; Crystal (Ruby)

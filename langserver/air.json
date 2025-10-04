@@ -1,0 +1,6 @@
+{
+  "name": "air",
+  "languageId": "r",
+  "command": ["air", "lsp"],
+  "settings": {}
+}
